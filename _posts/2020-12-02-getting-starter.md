@@ -110,7 +110,7 @@ There are a few things to get ready for.
 - If you have committed `Gemfile.lock`{: .filepath} to the repository, and your local machine is not running Linux, go the the root of your site and update the platform list of the lock-file:
 
   ```console
-  $ bundle lock --add-platform x86_64-linux
+  bundle lock --add-platform x86_64-linux
   ```
 
 Next, configure the _Pages_ service.
