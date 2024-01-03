@@ -28,6 +28,52 @@ abs(3+4j)
 # 5.0
 ```
 
+### round()
+
+La función `round()` redondea un número a su entero más próximo. Pero los números decimales que terminan en 5 son un caso especial. Python sigue la estrategia de "redondear empates a números pares". Esto significa que para redondear un número de coma flotante terminado en 5, se mira el dígito que tiene a su izquierda. Si el dígito es par,
+
+---
+
+## Ayuda para programar
+
+### help()
+
+La función `help()` muestra la ayuda integrada de cualquier componente del ecosistema de Python, y como tal está pensada para ser utilizada por el intérprete. Si no se especifica ningún parámetro inicia una sesión interactiva. Por el contrario, si se le pasa un nombre de una clase o un objeto que la represente, mostrará la ayuda de esa clase.
+
+#### Sintaxis
+
+```
+help(object)
+```
+
+#### Ejemplo
+
+```py
+help(list)      # Muestra la ayuda para las listas
+help([1, 2, 3]) # Muestra la ayuda para las listas
+help(help)      # Muestra la ayuda de la función help
+help()          # Abre una sesión de ayuda interactiva
+```
+
+### dir()
+
+Con la función `dir()` obtenemos una lista cuyos elementos son los métodos del **objeto** ordenados alfabéticamente. Cabe destacar que podemos pasar tanto el nombre de una clase o un objeto que la represente.
+
+#### Sintaxis
+
+```
+dir(object)
+```
+
+#### Ejemplos
+
+```py
+dir(list)      # Muestra todos los métodos de las listas
+dir([1, 2, 3]) # Muestra todos los métodos de las listas
+```
+
+---
+
 ## Generación de secuencias iterables
 
 ### range()
@@ -80,6 +126,26 @@ La función `enumerate()` toma una secuencia o un iterador y retorna un objeto d
 enumarate(iterable, start)
 ```
 
+#### Parámetros
 
+- `iterable` (*Requerido*) : Un objeto iterable.
+- `start` (*Opcional*) : Un número entero que permite especificar el número que comenzará la enumeración del objeto iterable.
+	- Predeterminado 0
+
+#### Ejemplos
+
+Imprimir enumerar una lista de instrucciones comenzando la enumeración desde el 1:
+
+```py
+instrucciones = [
+	'Clic derecho para abrir el menú contextual',
+	'Desplazarse hasta la opción nuevo',
+	'Seleccionar la opción carpeta',
+	'Dar el nombre a la carpeta'
+]
+
+for index, item in enumerate(instrucciones, 1):
+	print(index, item)
+```
 
 
