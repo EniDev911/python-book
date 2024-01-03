@@ -12,17 +12,48 @@ En este capítulo, vamos a comenzar a trabajar con la *Memoria Secundaria* (o ar
 
 Nos vamos enfocar principalmente en leer y escribir archivos como los que creamos en un editor de texto. Más adelante veremos cómo trabajar con archivos de bases de datos, que son archivos binarios diseñados específicamente para ser leídos y escritos a través de software para el manejo de bases de datos.
 
-## Abrir archivos
-
 Cuando queremos abrir un archivo (digamos, en el disco duro), primero debemos *abrir* el archivo. Al abrir el archivo nos comunicamos con el sistema operativo, el cual sabe dónde están almacenados los datos de cada archivo. Cuando abres un archivo, le estás pidiendo al sistema operativo que encuentre el archivo por su nombre y se asegure que existe.
 
+
+## Abrir archivos
+
+> Es importante dominar los conceptos de **ruta relativa** y **ruta absoluta** para trabajar con archivos.
+{: .prompt-warning }
+
+Para abrir un archivo Python nos brinda la función `open()` que recibe como argumento la **ruta del archivo** que queremos manejar como un *`string`* y como segundo argumento el **modo de apertura** también como un *`string`*.
+
+{:class='fs-5'}
+Ver el ejemplo
+
 ```py
-manejador_archivo = open('file.txt')
-print(manejador_archivo)
+manejador = open('file.txt')
+print(manejador)
 ```
 
-Si el `open` es exitoso, el sistema operativo nos devuelve un *manejador de archivo*. El manejador de archivo no son los datos contenidos en el archivo, sino un "manejador" (*handler*) que podemos usar para leer los datos. Obtendrás un manejador de archivo si el archivo solicitado existe y si tienes los permisos apropiados para leerlo.
+Si el `open` es exitoso, el sistema operativo nos devuelve un *manejador de archivo*, que en este caso lo estamos asignando a una variable llamada `manejador`. El **manejador de archivo** no son los datos contenidos en el archivo, sino un "manejador" (*handler*) que podemos usar para leer los datos. Obtendrás un manejador de archivo si el archivo solicitado existe y si tienes los permisos apropiados para leerlo.
 
+
+---
+
+## Leer un archivo
+
+Para leer un archivo sabemos que lo primero es abrir el respectivo archivo, si nos ponemos a pensar en una lista de amigos que tenemos en un archivo de texto llamado `amigos.txt` con el siguiente contenido:
+
+```
+Marco
+Luis
+Gabriel
+Alejandro
+```
+{: file='amigos.txt' }
+
+
+Y luego tenemos que usar la función `open` para abrir el archivo en modo lectura:
+
+```py
+manejador = open('amigos.txt')
+manejador.read()
+```
 
 ---
 
@@ -33,6 +64,10 @@ Para escribir texto en un archivo hay que abrir el archivo en **modo escritura**
 ```shell
 f = open('some_data.dat', 'w')
 ```
+
+
+---
+
 
 ## Propiedades del objeto file
 
@@ -92,10 +127,11 @@ Un ejemplo muy típico es intentar abrir un archivo, pero capturar una posible e
 Veamos el ejemplo
 
 ```py
-# Se intenta abrir un fichero y se captura una posible excepción
+# Se intenta abrir un archivo y se captura una posible excepción
 try:
-	with open('fichero.txt') as file:
+	with open('archivo.txt') as file:
 		read_data = file.read()
+		print(read_data)
 except:
 	# Se entra aquí si no pudo ser abierto
 	print('No se pudo abrir')
