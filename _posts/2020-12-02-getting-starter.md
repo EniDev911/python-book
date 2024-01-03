@@ -1,6 +1,6 @@
 ---
 title: Funciones en Python
-author: cotes
+author: enidev911
 date: 2019-08-09 20:55:00 +0800
 categories: [Python, Funciones]
 tags: [funciones en python]
