@@ -5,7 +5,7 @@ date: 2024-01-02 20:55:00 +0800
 categories: [Python, Basico]
 tags: [básico]
 pin: true
-img_path: '/posts/20180809'
+img_path: 'python'
 ---
 
 Los desarrolladores a menudo tenemos la necesidad de interactuar con los usuarios, ya sea para obtener datos o para proporcionar algún tipo de resultado. La mayoría de los programas actuales utilizan un cuadro de diálogo como una forma de pedirle al usuario que proporcione algún tipo de entrada (*input*). Mientras que Python una función incorporada para leer la entrada estándar desde el teclado.
@@ -27,14 +27,12 @@ Esta función **input()** primero toma la entrada del usuario y luego se evalúa
 ```py
 val = input("Ingresa un valor: ")
 print(val)
-# Ingresa un valor :  10
-# output: 10 
-# por defecto lo almacena como una cadena
+# por defecto cualquier valor ingresao lo almacena como una cadena
 print(type(val))
 # <class 'str'>
 ```
 
-Usando la conversión de tipos, si convierte explícitamente una variable que contiene a la función `input()` o utilizandola directamente en su declaración y si el usuario ingresa un valor erróneo tendría una excepción de tipo [**_`ValueError`_**](https://docs.python.org/3/library/exceptions.html#ValueError):
+Usando la conversión de tipos, si convierte explícitamente una variable que contiene a la función `input()` o utilizandola directamente en su declaración y si el usuario ingresa un valor erróneo tendría una excepción de tipo [_`ValueError`_](https://docs.python.org/3/library/exceptions.html#ValueError){:target='_blank'}:
 
 
 ```py
@@ -46,13 +44,16 @@ print(val)
 # output: ValueError: invalid literal for int() with base 10: 'diez'
 ```
 
+![excepcion](exception_input.png){: w="700" h="190" .shadow }
+_Excepción generada por ingresar un valor incorrecto_
+
 ---
 
 ## Como funciona internante input() en Python
 
-- Primero se ejecuta la función `input()`, el flujo del programa se detendrá hasta que el usuario haya dado la entrada.
+- Primero se ejecuta la función `input()`, el flujo del programa se detendrá hasta que el usuario ingrese algo o no y presione <kbd>Enter</kbd>.
 
-- El texto o mensaje que se ingreso a la opción `prompt` muestra en la pantalla de salida para pedirle al usuario que ingrese un valor de entrada (opcional).
+- El texto o mensaje que se ingreso a la opción `prompt`se muestra en la pantalla de salida para pedirle al usuario que ingrese un valor de entrada.
 
 - Lo que sea que ingrese como entrada, la función `input()` lo convierte en una cadena, quiere decir, si ingresa un valor entero, será procesado como una cadena, necesitará convertirlo explícitamente en un número entero en su código usando la **conversión de tipo** Ej: 
 
@@ -60,10 +61,9 @@ print(val)
 ```py
 num = input("Ingrese un número: ")
 print(type(num))
-# output: <class 'str'>
 num = int(input("Ingrese un número: "))
-print(type(num))
-# output: <class 'int'>
+print(type(num)) # output: <class 'int'>
+
 # otra opción más legible es:
 num = input("Ingrese un número: ")
 print(type(int(num)))
@@ -83,10 +83,10 @@ En Python se pueden tomar múltiples valores o entradas en una línea mediante d
 Esta función ayuda obtener múltiples entradas de los usuarios rompe la entrada dada por el separador, cualquier espacio en blanco es un separador. Generalmente, los desarrolladores usan el método **split()** para dividir una cadena de Python, pero se puede usar para tomar múltiples entradas. 
 
 
-**Sintaxis**: 
+### Sintaxis
 
-```py
-input().split(separator, maxplit)
+```
+str.split(separator, maxplit)
 ```
 
 **Ejemplos**: 
@@ -99,11 +99,6 @@ print('Eje y:', y)
 a, b = input('Ingresa dos valores: ').split()
 print('Primer número {} y segundo número es {}'.format(a, b))
 ```
-
-<p align="center">
- <a href="https://colab.research.google.com/drive/1Xii73KEHvw8y9Utu1KlSH8FGWfrPaSO8?usp=sharing" target="_blank">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" height="35"/></a> 
-</p>
 
 ---
 
