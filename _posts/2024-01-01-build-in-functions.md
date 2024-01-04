@@ -16,7 +16,7 @@ Python tiene una gran variedad de funciones que podemos utilizar sin necesidad d
 
 ### print()
 
-Esta es sin duda la función más conocida de todas. Lo que hace `print()` es imprimir por la salida estándar la representación en un *string* de cualquier objeto. Además tiene varios parámetros de entrada opcionales que modifican su comportamiento.
+Es sin duda la función más conocida de todas. Lo que hace `print()` es imprimir por la salida estándar la representación en un *string* de cualquier objeto. Además tiene varios parámetros de entrada opcionales que modifican su comportamiento.
 
 #### Sintaxis
 
@@ -58,7 +58,24 @@ saluda
 
 ### input()
 
-La función integrada `input()` toma datos de entrada por el teclado hasta que pulsamos <kbd>Enter</kbd>
+La función integrada `input()` toma datos de entrada por el teclado hasta que pulsamos <kbd>Enter</kbd>. Normalmente a menudo tenemos la necesidad de obtener un dato para proporcionar algún tipo de resultado.
+
+#### Sintaxis
+
+```
+input(prompt)
+```
+
+#### Parámetros
+
+- `prompt` : Un *string* que se muestra como un mensaje de ayuda para el usuario que interactua con el programa.
+
+#### Ejemplos
+
+```py
+val = input("Ingresa un valor: ")
+print(val)
+```
 
 ---
 
@@ -67,7 +84,6 @@ La función integrada `input()` toma datos de entrada por el teclado hasta que p
 ### abs()
 
 La función `abs()` retorna el valor absoluto, es decir su valor sin importar su signo. El argumento que puede recibir la función puede ser un número entero, un número de coma flotante. En caso de números complejos retorna el valor de la magnitud.
-
 
 ```py
 abs(3)    # 3
