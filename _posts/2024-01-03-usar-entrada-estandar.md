@@ -6,7 +6,12 @@ categories: [Python, Basico]
 tags: [básico]
 pin: true
 img_path: 'python'
+image:
+    path: "https://enidev911.github.io/fullstack-python/assets/img/python-input-card.png"
+    alt: ""
 ---
+
+## Entrada de datos en Python - input
 
 Los desarrolladores a menudo tenemos la necesidad de interactuar con los usuarios, ya sea para obtener datos o para proporcionar algún tipo de resultado. La mayoría de los programas actuales utilizan un cuadro de diálogo como una forma de pedirle al usuario que proporcione algún tipo de entrada (*input*). Mientras que Python una función incorporada para leer la entrada estándar desde el teclado.
 
@@ -16,46 +21,53 @@ Los desarrolladores a menudo tenemos la necesidad de interactuar con los usuario
 input(prompt) # Para Python en su versión 3.x
 ```
 
-> **prompt**: es un argumento opcional recibe una cadena de texto para mostrar al usuario.
+> **prompt**: es un parámetro opcional y recibe como argumento una cadena de texto para mostrar al usuario.
+{: .prompt-tip }
+
+### Como funciona internante input() en Python
+
+- [ ] Flujo
+  + [x] Primero se ejecuta la función `input()`, el flujo del programa se detendrá hasta que el usuario ingrese un valor o no y presione <kbd>Enter</kbd>.
+  + [x] El texto o mensaje que se ingreso para el parámetro `prompt` se muestra en la pantalla de salida para pedirle al usuario que ingrese un valor de entrada.
+  + [x] Se evalúa la expresión, lo que significa que Python identifica automáticamente si el usuario ingresó una cadena, un número, una lista, etc.Lo que sea que ingrese como entrada, la función `input()` lo convierte en una cadena _string_.
+  + [ ] Si la entrada proporcionada no es correcta, Python genera un error de sintaxis o una excepción como [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError).
+
+
+### Ejemplo con input
+
+Le pedimos al usuario que ingrese un valor desde el teclado:
+
+```py
+val = input("Introduce un valor: ")
+print(val)
+
+print(type(val)) # <class 'str'>
+```
+
+> Por defecto cualquier valor ingresado, Python lo almacena como una cadena
 {: .prompt-info }
 
-Esta función **input()** primero toma la entrada del usuario y luego se evalúa la expresión, lo que significa que Python identifica automáticamente si el usuario ingresó una cadena, un número o una lista. Si la entrada proporcionada no es correcta, Python genera un error de sintaxis o una excepción como [**_`ValueError`_**](https://docs.python.org/3/library/exceptions.html#ValueError). 
-
-**Ejemplo:**
+Si lo que queremos es que el usuario ingrese un número y representarlo como tal, tenemos que hacer la conversión de tipos, es decir, decirle a Python explícitamente que la variable que contiene a la función `input()` se convierta a número. Para ello Python nos proporciona algunas funciones integradas:
 
 
 ```py
-val = input("Ingresa un valor: ")
-print(val)
-# por defecto cualquier valor ingresao lo almacena como una cadena
-print(type(val))
-# <class 'str'>
+val = input("Ingresa un número: ")
+
+entero = int(val)
+flotante = float(val)
+
+print(type(entero)) # <class 'int'>
+print(type(flotante)) # <class 'float'>
 ```
 
-Usando la conversión de tipos, si convierte explícitamente una variable que contiene a la función `input()` o utilizandola directamente en su declaración y si el usuario ingresa un valor erróneo tendría una excepción de tipo [_`ValueError`_](https://docs.python.org/3/library/exceptions.html#ValueError){:target='_blank'}:
 
 
-```py
-val = int(input("Ingresa un número: "))
-# o también ocurrirá un error si lo tengo de la siguiente manera
-# print(int(val))
-print(val)
-# Ingresa un valor :  diez
-# output: ValueError: invalid literal for int() with base 10: 'diez'
-```
 
 ![excepcion](exception_input.png){: w="700" h="190" .shadow }
 _Excepción generada por ingresar un valor incorrecto_
 
 ---
 
-## Como funciona internante input() en Python
-
-- Primero se ejecuta la función `input()`, el flujo del programa se detendrá hasta que el usuario ingrese algo o no y presione <kbd>Enter</kbd>.
-
-- El texto o mensaje que se ingreso a la opción `prompt`se muestra en la pantalla de salida para pedirle al usuario que ingrese un valor de entrada.
-
-- Lo que sea que ingrese como entrada, la función `input()` lo convierte en una cadena, quiere decir, si ingresa un valor entero, será procesado como una cadena, necesitará convertirlo explícitamente en un número entero en su código usando la **conversión de tipo** Ej: 
 
 
 ```py
