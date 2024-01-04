@@ -8,7 +8,59 @@ pin: true
 img_path: '/posts/20180809'
 ---
 
-Python tiene una gran variedad de funciones que podemos utilizar sin necesidad de importar ningún módulo.
+Python tiene una gran variedad de funciones que podemos utilizar sin necesidad de importar ningún módulo. En este artículo vamos a seleccionar algunas para revisar y dichas funciones estarán agrupadas en diferentes categorías en función de su utilidad, tal y como se puede ver en la tabla de contenido de este artículo.
+
+---
+
+## Entrada - Salida
+
+### print()
+
+Esta es sin duda la función más conocida de todas. Lo que hace `print()` es imprimir por la salida estándar la representación en un *string* de cualquier objeto. Además tiene varios parámetros de entrada opcionales que modifican su comportamiento.
+
+#### Sintaxis
+
+```
+print(object(s), sep=separator, end=end, file=file, flush=flush)
+```
+
+#### Parámetros
+
+- `object(s)` (*Opcional*) : Uno o más objetos, que serán convertidos en *string* para ser imprimidos.
+	- Predeterminado `\n` (salto de línea)
+- `sep='separator'` (*Opcional*) : Un separador que permite especificar el carácter para separar los objetos, si es que son más de uno.
+	- Predeterminado `''` (espacio en blanco)
+- `end='end'` (*Opcional*) : Permite especificar como imprimir al final del *string*
+	- Predeterminado `\n` (salto de línea)
+
+
+#### Ejemplos
+
+```python
+print("Hola Mundo!") # Hola Mundo!
+print([1, 2, 3, 4])  # [1, 2, 3, 4]
+print("Bienvenido", "al", "Mundo", "de", "Python", sep="\n")
+"""
+Bienvenido
+al
+Mundo
+de
+Python
+"""
+print("Python", "te", "saluda", sep="\n", end="\n*-*-*-\n")
+"""
+Python
+te
+saluda
+*-*-*-
+"""
+```
+
+### input()
+
+La función integrada `input()` toma datos de entrada por el teclado hasta que pulsamos <kbd>Enter</kbd>
+
+---
 
 ## Funciones matemáticas
 
@@ -81,6 +133,39 @@ dir(object)
 dir(list)      # Muestra todos los métodos de las listas
 dir([1, 2, 3]) # Muestra todos los métodos de las listas
 ```
+
+---
+
+## Estructuras de datos
+
+### list()
+
+En realidad `list()` más que una función en si, se trata de un constructor de **listas**. Cuando lo utilizamos sin argumentos crea una lista vacía. También le podemos pasar como argumento una secuencia iterable, en cuyo caso la convierte en una lista. Normalmente esa secuencia iterable que le pasamos a `list()` no suele ser una lista ya que estaríamos generando código redundante.
+
+#### Sintaxis
+
+```
+list(iterable)
+```
+
+#### Ejemplos
+
+```py
+list()          # []
+list((1, 2, 3)) # [1, 2, 3]
+list(range(3))  # [0, 1, 2]
+```
+
+### dict()
+
+Asi como `list()`, también tenemos el constructor para la clase de **diccionarios** `dict()`. Usado sin argumento retorna un diccionario vacío. Con `dict()` también podemos crear un diccionario que no sea vació. Para ello tenemos que pasarle argumentos nombrados, donde los nombres de argumentos se corresponden con las claves del diccionario y los valores con el valor para sus respectiva clave.
+
+```py
+print(dict())                     # {}
+print(dict(uno=1, dos=2, tres=3)) # {'uno': 1, 'dos': 2, 'tres': 3}
+```
+
+
 
 ---
 
