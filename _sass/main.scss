@@ -24,3 +24,14 @@ em.string {
    font-weight: 600;
    border: 1px solid var(--mask-bg);
 }
+
+
+.noheader {
+
+	overflow: hidden;
+	padding-top: 10px;
+
+	.code-header {
+ 		display: none;
+	}
+}

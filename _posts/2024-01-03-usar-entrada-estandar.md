@@ -15,7 +15,7 @@ image:
 
 Los desarrolladores a menudo tenemos la necesidad de interactuar con los usuarios, ya sea para obtener datos o para proporcionar algún tipo de resultado. La mayoría de los programas actuales utilizan un cuadro de diálogo como una forma de pedirle al usuario que proporcione algún tipo de entrada (*input*). Mientras que Python una función incorporada para leer la entrada estándar desde el teclado.
 
-**Sintaxis**
+### Sintaxis
 
 ```
 input(prompt) # Para Python en su versión 3.x
@@ -33,7 +33,7 @@ input(prompt) # Para Python en su versión 3.x
   + [ ] Si la entrada proporcionada no es correcta, Python genera un error de sintaxis o una excepción como [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError).
 
 
-### Ejemplo con input
+### Ejemplos con input
 
 Le pedimos al usuario que ingrese un valor desde el teclado:
 
@@ -58,50 +58,47 @@ flotante = float(val)
 
 print(type(entero)) # <class 'int'>
 print(type(flotante)) # <class 'float'>
+
+print(entero)
+print(flotante)
 ```
 
-
-
-
-![excepcion](exception_input.png){: w="700" h="190" .shadow }
-_Excepción generada por ingresar un valor incorrecto_
-
----
-
+> Las funciones `int()`, `float()` lanzan **excepciones** cuando el argumento pasado no puede ser representado como un número.
+{: .prompt-danger }
 
 
 ```py
-num = input("Ingrese un número: ")
-print(type(num))
-num = int(input("Ingrese un número: "))
-print(type(num)) # output: <class 'int'>
-
-# otra opción más legible es:
-num = input("Ingrese un número: ")
-print(type(int(num)))
+>>> int("diez")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: 'diez'
 ```
+{: .nolineno .noheader }
+
 
 ---
+
 
 ## Tomando múltiples entradas del usuario en Python
 
 En Python se pueden tomar múltiples valores o entradas en una línea mediante dos métodos:
 
-- usando el método **split()**
+- usando el método `split()` para dividir un *string*
 - usando la comprensión de lista (*list comprehension*)
 
-## Usando el método split()
+### Usando el método split()
 
-Esta función ayuda obtener múltiples entradas de los usuarios rompe la entrada dada por el separador, cualquier espacio en blanco es un separador. Generalmente, los desarrolladores usan el método **split()** para dividir una cadena de Python, pero se puede usar para tomar múltiples entradas. 
-
-
-### Sintaxis
+#### Sintaxis
 
 ```
 str.split(separator, maxplit)
 ```
 
-**Ejemplos**: 
+Esta función nos puede ayudar a obtener múltiples entradas de los usuarios, rompe la entrada dada por el separador (`separator`). Cualquier espacio en blanco es un separador predeterminado para el parámetro `separator`, los desarrolladores usan el método **split()** para dividir un *string* en Python, pero se puede usar para tomar múltiples entradas.
+
+
+### Ejemplos usando split()
+
 
 ```py
 x, y = input('Ingresa dos valores: ').split()
@@ -118,7 +115,7 @@ print('Primer número {} y segundo número es {}'.format(a, b))
 
 Las comprensión de lista (*list comprehension*) es una forma elegante de definir y crear listas en Python. Podemos crear listas como enunciado matemáticos en una sola línea. También se utiliza para obtener múltiples entradas de un usuario.
 
-**Sintaxis**:
+### Sintaxis de list comprehension
 
 ```
 [expression for variable in collection if condition]
