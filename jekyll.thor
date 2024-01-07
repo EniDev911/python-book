@@ -1,3 +1,5 @@
+# Use: thor jekyll:new The title of the new post
+
 require "stringex"
 class Jekyll < Thor
   desc "new", "create a new post"
@@ -14,7 +16,7 @@ class Jekyll < Thor
     puts "Creating new post: #{filename}"
     open(filename, 'w') do |post|
       post.puts "---"
-      post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
+      post.puts "title: \"#{title.gsub(/&/,'&amp;').capitalize()}\""
       post.puts "author: enidev911"
       post.puts "date: #{date}"
       post.puts "---"
