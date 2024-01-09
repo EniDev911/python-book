@@ -3,10 +3,30 @@ title: "Bucles"
 author: enidev911
 date: 2024-01-07
 categories: [Python, Basico, Bucles]
+mermaid: true
 ---
 
 Por lo general, el código en Python se ejecuta de manera secuencial, es decir, empieza por la primera línea, pasa a la segunda y así sucesivamente. Sin embargo, existen casos, cuando se necesita un fragmento de código que se repita. Python y en general el mundo de la programación cuentan con las herramientas llamadas bucles (*loops*) para facilitar esta tarea. Los bucles permiten cambiar el flujo lineal del programa para repetir una parte del código tantas veces como sea necesario.
 
+
+```mermaid
+---
+title: Programa lineal vs control de flujo
+---
+flowchart TB
+    subgraph lineal
+    	direction TB
+    	a1([Inicio])-->a2
+    end
+    subgraph "con bucle"
+    	direction TB
+    	b1([inicio])
+    	-->b2{Es verdadero?}
+    	b2 --> |Si| c2[Ok]
+    	c2 --> d2[Repetir]
+    	d2 --> b2
+    end
+```
 
 ## Bucle While
 
