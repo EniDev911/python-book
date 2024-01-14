@@ -100,7 +100,7 @@ Podemos acceder a las **partes** (componentes) individuales de una ruta, usamos 
 ```py
 from pathlib import PurePath
 
-p = PurePath('/usr/bin/python3')
+p = PurePath('/foo/bar')
 print(p.parts)
 ```
 
