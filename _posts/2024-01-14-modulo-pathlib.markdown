@@ -116,3 +116,135 @@ En Unix:
 ('/', 'foo', 'bar')
 ```
 {: .nolineno .noheader }
+
+
+## Métodos y propiedades
+
+
+#### PurePath.drive
+
+Retorna una cadena que representa la letra o el nombre de la unidad que corresponda:
+
+```py
+from pathlib import PureWindowsPath
+
+p = PureWindowsPath('c:/Program Files/')
+
+print(p.drive)
+```
+
+```
+c:
+```
+{: .nolineno .noheader }
+
+#### PurePath.parent
+
+EL padre lógico de la ruta:
+
+```py
+from pathlib import PurePosixPath
+
+p = PurePosixPath('/a/b/c/d')
+
+print(p.parent)
+```
+
+```
+/a/b/c
+```
+{: .nolineno .noheader }
+
+
+#### PurePath.name
+
+Retorna el componente final de la ruta:
+
+```py
+from pathlib import PureWindowsPath
+
+p = PureWindowsPath('C:/Program Files/Git/git-bash.exe')
+
+print(p.name)
+```
+
+```
+git-bash.exe
+```
+{: .nolineno .noheader }
+
+
+#### PurePath.suffix
+
+La extensión del archivo del componente final (si lo hay):
+
+```py
+from pathlib import PurePosixPath
+
+p = PurePosixPath('/home/project/main.py')
+
+print(p.suffix)
+```
+
+```
+.py
+```
+{: .nolineno .noheader }
+
+#### PurePath.stem
+
+El componente final sin su extensión:
+
+```py
+from pathlib import PurePosixPath
+
+p = PurePosixPath('/home/project/main.py')
+
+print(p.stem)
+```
+
+```
+main
+```
+{: .nolineno .noheader }
+
+#### PurePath.as_posix()
+
+Devuelve una cadena que representa la ruta con barras invertidas `/`:
+
+```py
+from pathlib import PureWindowsPath
+
+p = PureWindowsPath("C:\\Program Files\\Git\\git-bash.exe")
+print(p.as_posix())
+```
+
+```
+C:/Program Files/Git/git-bash.exe
+```
+{: .nolineno .noheader }
+
+---
+
+## Rutas concretas
+
+Las rutas concretas son subclases de las rutas puras. Además de las operaciones que proporcionan las rutas puras, también proporcionan métodos que pueden interactuar con el sistema de archivos usando los objetos de ruta.
+
+
+#### class pathlib.Path(\*pathsegments)
+
+Una subclase de **PurePath**, esta clase representa rutas concretas de la familia de rutas del sistema:
+
+```py
+from pathlib import WindowsPath
+
+p = WindowsPath("c:\\Program Files\\Git\git-bash.exe")
+```
+```
+c:\Program Files\Git\git-bash.exe
+```
+{: .nolineno .noheader }
+
+
+> Solo se pueden crear instancias de la familia de clase que corresponde a su sistema operativo (permitir llamadas al sistema de archivos que no sea compatible, puede provocar errores en la aplicación)
+{: .prompt-info}
