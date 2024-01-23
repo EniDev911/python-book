@@ -1,5 +1,5 @@
 ---
-title: "Modulo Pathlib"
+title: "Módulo Pathlib"
 author: enidev911
 categories: [Python, Módulos]
 date: 2024-01-14
