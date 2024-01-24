@@ -91,3 +91,115 @@ ejercicio_4.py
 ejercicio_5.py
 ```
 {: .nolineno .noheader }
+
+### Crear un nuevo directorio
+
+Esta función toma como argumento la ruta (*path*) del nuevo directorio. Si no se especifica la ruta absoluta, el directorio nuevo se crea en el directorio de trabajo actual.
+
+
+```py
+import os
+
+os.mkdir('test') # crea el directorio dentro del directorio actual de trabajo
+os.mkdir(os.path.join('test', 'carpeta_nueva')) # crea un subdirectorio dentro de test
+
+print(os.listdir('test'))
+```
+
+```
+['carpeta']
+```
+{: .nolineno .noheader }
+
+
+### Renombrar un directorio o un archivo
+
+Para renombrar un directorio o archivo, la función `rename()` toma dos argumentos, el biejo nombre y el nuevo nombre:
+
+```py
+import os
+
+os.chdir('test') # entramos al directorio creado test
+print(os.listdir()) # listamos y podemos ver el subdirectorio 'carpeta'
+
+os.rename('carpeta', 'nueva_carpeta')
+print(os.listdir()) # vuelvo a listar y ver el nuevo nombre
+```
+
+```
+['carpeta']
+['nueva_carpeta']
+```
+{: .nolineno .noheader }
+
+> La función `rename()` también es útil para mover un archivo o directorio, cambiando la ruta de acceso al archivo. Probar el siguiente código.
+{: .prompt-tip }
+
+```py
+os.rename(os.path.join('test', 'nueva_carpeta'), 'nueva_carpeta')
+```
+
+### Eliminar un directorio o un archivo
+
+> A continuación usaremos comandos que borran archivos sin pasar por ninguna papelera de reciclaje. Estas acciones no pueden deshacerse.
+{: .prompt-danger }
+
+![gif](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDR5aGlkYnVmenkwcDM4MGJ0c3phNmFuNHA4cnhoNTd5dHI5ZXR6dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MCZ39lz83o5lC/giphy.gif)
+
+Podemos eliminar un archivo usando la función `remove()`. También podemos eliminar un directorio vacío usando `rmdir()`.
+
+En el siguiente código trabajaremos en una carpeta que tiene esta estructura:
+
+```
+nueva_carpeta
+├── archivo.txt
+└── otra_carpeta
+		└── otro_archivo.txt
+```
+{: .nolineno .noheader }
+
+
+```py
+import os
+
+os.chdir('nueva_carpeta')  # entramos al directorio
+os.remove('archivo.txt') # eliminamos el archivo
+```
+
+> **Ojo**: `rmdir()` solamente puede borrar directorios si están vacíos. Para eliminar un directorio que no está vacío, podemos usar `rmtree()` del módulo `shutil`.
+{: .prompt-info }
+
+
+```py
+import os, shutil
+
+os.chdir('nueva_carpeta')  # entramos al directorio
+shutil.rmtree('otra_carpeta') # eliminamos el subdirectorio y su contenido
+os.chdir("..") # retrocedemos un nivel
+
+print(os.listdir())
+```
+```
+[]
+```
+{: .nolineno .noheader }
+
+
+## Variables de entornos en Python
+
+### Acceder a las variables de entornos del sistema
+
+Para acceder con Python a las variables de entorno del sistema, usamos `environ`:
+
+```py
+import os
+
+print(os.environ)
+```
+
+```
+environ({'HOME': '...', 'USER': '...', ... })
+```
+{: .nolineno .noheader }
+
+Esto imprimirá la lista de variables cargadas en el sistema operativo en formato de diccionario cada variable estará especificada en pares de `clave:valor`
