@@ -3,6 +3,7 @@ title: Option Menu
 author: enidev911
 categories: [Tkinter, Widget]
 tags: [Widgets]
+img_path: /assets/img/
 ---
 
 ## Ejemplo
@@ -39,6 +40,6 @@ root.mainloop()
 {% endtab %}
 
 {% tab optionmenu resultado %}
-![option menu](img/optionmenu1.png)
+![option menu](optionmenu1.png)
 {% endtab %}
 {% endtabs %}

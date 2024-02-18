@@ -71,7 +71,7 @@ theme_mode: # [light|dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn: https://enidev911.github.io/assets/
+#img_cdn: https://enidev911.github.io/assets/
 
 # the avatar on sidebar, support local or CORS resources
 avatar: https://enidev911.github.io/fullstack-python/assets/svg/python.svg
