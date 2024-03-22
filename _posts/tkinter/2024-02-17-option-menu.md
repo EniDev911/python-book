@@ -16,7 +16,6 @@ img_path: /assets/img/
 
 ## Ejemplo
 
-
 {% tabs optionmenu %}
 
 {% tab optionmenu main.py %}
