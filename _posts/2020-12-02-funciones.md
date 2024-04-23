@@ -49,7 +49,6 @@ print(resta(50, 10))
 ```shell
 40
 ```
-{: .nolineno .noheader }
 
 ### Argumentos por nombre
 
