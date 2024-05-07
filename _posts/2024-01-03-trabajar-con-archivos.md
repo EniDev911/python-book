@@ -12,7 +12,7 @@ En este capítulo, vamos a comenzar a trabajar con la *Memoria Secundaria* (o ar
 
 Nos vamos enfocar principalmente en leer y escribir archivos como los que creamos en un editor de texto. Más adelante veremos cómo trabajar con archivos de bases de datos, que son archivos binarios diseñados específicamente para ser leídos y escritos a través de software para el manejo de bases de datos.
 
-Cuando queremos abrir un archivo (digamos, en el disco duro), primero debemos *abrir* el archivo. Al abrir el archivo nos comunicamos con el sistema operativo, el cual sabe dónde están almacenados los datos de cada archivo. Cuando abres un archivo, le estás pidiendo al sistema operativo que encuentre el archivo por su nombre y se asegure que existe.
+Cuando queremos abrir un archivo (digamos, en el disco duro), primero debemos **abrir el archivo**. Al abrir el archivo nos comunicamos con el sistema operativo, el cual sabe dónde están almacenados los datos de cada archivo. Cuando abres un archivo, le estás pidiendo al sistema operativo que encuentre el archivo por su nombre y se asegure que existe.
 
 
 ## Abrir archivos
@@ -20,7 +20,7 @@ Cuando queremos abrir un archivo (digamos, en el disco duro), primero debemos *a
 > Es importante dominar los conceptos de **ruta relativa** y **ruta absoluta** para trabajar con archivos.
 {: .prompt-warning }
 
-Para abrir un archivo Python nos brinda la función `open()` que recibe como argumento la **ruta del archivo** que queremos manejar como un *`string`* y como segundo argumento el **modo de apertura** también como un *`string`*.
+Para abrir un archivo Python nos brinda la función `open()` que recibe como argumento la **ruta del archivo** que queremos manejar como un `string` y como segundo argumento el **modo de apertura** también como un `string`.
 
 {:class='fs-5'}
 Ver el ejemplo
@@ -28,9 +28,11 @@ Ver el ejemplo
 ```py
 manejador = open('file.txt')
 print(manejador)
+print(type(manejador))
 ```
+{: .nolineno }
 
-Si el `open` es exitoso, el sistema operativo nos devuelve un *manejador de archivo*, que en este caso lo estamos asignando a una variable llamada `manejador`. El **manejador de archivo** no son los datos contenidos en el archivo, sino un "manejador" (*handler*) que podemos usar para leer los datos. Obtendrás un manejador de archivo si el archivo solicitado existe y si tienes los permisos apropiados para leerlo.
+Si el resultado de `open` es exitoso, el sistema operativo nos devuelve un **manejador de archivo**, que en este caso lo estamos asignando a una variable llamada `manejador`. El **manejador de archivo** no son los datos contenidos en el archivo, sino un manejador (*handler*) que podemos usar para leer los datos. Obtendrás un manejador de archivo si el archivo solicitado existe y si tienes los permisos apropiados para leerlo.
 
 
 ---
@@ -48,12 +50,14 @@ Alejandro
 {: file='amigos.txt' }
 
 
-Y luego tenemos que usar la función `open` para abrir el archivo en modo lectura:
+Y luego tenemos que usar la función `open` para abrir el archivo en modo lectura (si no le pasamos un segundo argumento a la función `open` por defecto es modo lectura) y usar el método `read()` del manejador:
 
 ```py
 manejador = open('amigos.txt')
-manejador.read()
+print(manejador.read())
 ```
+{: .nolineno }
+
 
 ---
 
@@ -61,10 +65,43 @@ manejador.read()
 
 Para escribir texto en un archivo hay que abrir el archivo en **modo escritura**. Para ello utilizamos el *argumento adicional* en la función `open()` que se indica en la siguiente operación:
 
-```shell
-f = open('some_data.dat', 'w')
+```python
+manejador = open('amigos.txt', 'w')
 ```
+{: .nolineno }
 
+Luego usaremos el método `write` del manejador para escribir en el archivo anterior:
+
+```python
+
+manejador = open('amigos.txt', 'w')
+
+manejador.write("Juan")
+```
+{: .nolineno }
+
+Si revisamos el archivo `amigos.txt` nos encontraremos con la sorpresa de que se sobreescribio el contenido:
+
+```
+Juan
+```
+{: file='amigos.txt' }
+
+Esto sucede porque el segundo argumento `'w'` se refiere al modo de **solo escritura**, por lo que los datos existentes en el archivo de modifican y sobrescriben y si el archivo aún no existe, se crea uno nuevo. Por otro lado no podemos leer el archivo usando el método `read()` si quisieramos leer el archivo debemos usar `'w+'` para cambiar al modo de **escritura y lectura**.
+
+### Escribir al final de un archivo
+
+Tenemos entonces ahora el modo de **solo agregar** (*append*) `'a'` que nos permite abrir el archivo para escritura y de la misma forma que `'w'` si el archivo aún no existe, se crea uno nuevo. La diferencia es que en este modo el cursor del manejador se establece al final del archivo y así los datos recíen escritos se agregarán al final, manteniendo los datos escritos anteriormente:
+
+
+```python
+manejador = open('amigos.txt', 'a')
+
+manejador.write("\nJuan") # '\n' es para generar un salto de línea 
+```
+{: .nolineno }
+
+Al igual que en el caso anterior, si queremos además leer el archivo debemos cambiar al modificador `'a+'`.
 
 ---
 
@@ -85,14 +122,16 @@ Se pueden acceder a las siguientes **propiedades**:
 Podemos ver un ejemplo
 
 ```py
-archivo = open("ejemplo.txt", "a+")
-archivo.write("hola")
-content = archivo.read()
-nombre = archivo.name # 'ejemplo.txt'
-modo = archivo.mode
-encoding = archivo.encoding
-archivo.close()
+manejador = open("amigos.txt", "a+")
+content = manejador.read()
+nombre = manejador.name # 'amigos.txt'
+modo = manejador.mode # a+
+encoding = manejador.encoding # cp1252
+manejador.close()
+manejador.closed # True
 ```
+{: .nolineno }
+
 
 ---
 

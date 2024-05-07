@@ -14,11 +14,13 @@ Anteriormente hemos visto funciones nativas que vienen con Python como `len()` p
 
 ### Sintaxis de una función
 
-```
-def name_function(args):
-	...code
+```py
+def name_function(param):
+	# ...code
+
 	return val
 ```
+{: .nolineno }
 
 Cualquier función tendrá un **nombre**, opcionalmente podrá recibir **parámetros**, el cuerpo que contiene el **código a ejecutar** y opcionalmente, pero que en la mayoría de los casos se hace es que nos retorna un valor. Por ejemplo el siguiente código define una función que recibe un parámetro y retorna el valor pasado como argumento a la función elevado al cuadrado:
 
@@ -74,10 +76,11 @@ Al llamar a una función que tiene definidos parámetros, si no le enviamos los 
 ```py
 resta()
 ```
+{: .nolineno }
 
 ```py
 Traceback (most recent call last):
-  File "c:/Users/file.py", line 6, in <module>
+  File "c:/Users/file.py", line 4, in <module>
     resta()
 TypeError: resta() missing 2 required positional arguments: 'a' and 'b'
 ```
@@ -86,7 +89,7 @@ TypeError: resta() missing 2 required positional arguments: 'a' and 'b'
 
 ### Parámetros por defecto
 
-Para evitar un error como en el caso anterior, podemos asignar valores por defecto, de esa forma podríamos hcaer una comprobación antes de ejecutar el código de la función:
+Para evitar un error como en el caso anterior, podemos asignar valores por defecto, de esa forma podríamos hacer una comprobación antes de ejecutar el código de la función:
 
 ```py
 def resta(a=None, b=None):
