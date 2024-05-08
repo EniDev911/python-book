@@ -4,8 +4,9 @@
   icon: "fab fa-github"
   url: https://github.com/enidev911
 
-- type: twitter
-  icon: "fa-brands fa-x-twitter"
+- type: linkedin
+  icon: "fa-brands fa-linkedin-in"
+  url: https://www.linkedin.com/in/enidev911/
 
 - type: email
   icon: "fas fa-envelope"

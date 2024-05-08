@@ -260,3 +260,33 @@ for index, item in enumerate(instrucciones, 1):
 ```
 
 
+### map()
+
+Esta función trabaja de forma similar a la función `filter()` con la diferencia que en lugar de aplicar una condición a un elemento de una secuencia o lista, aplica una función sobre todos los elementos y como resultado nos retorna un iterable de tipo map.
+
+
+### Ejemplos
+
+Tenemos una función definida por el usuario para elevar números al cuadrado llamada `al_cuadrado` y será la función que le pasaremos como argumento a la función `map()`:
+
+```python
+def al_cuadrado(num):
+  return num ** 2
+
+numeros = [2, 5, 10, 23, 20]
+
+numeros_al_cuadrado = map(al_cuadrado, numeros)
+
+print(numeros_al_cuadrado) # <map object at 0x0000000002205D48>
+print(list(numeros_al_cuadrado)) # [4, 25, 100, 529, 400]
+```
+{: .nolineno }
+
+Como observamos en el ejemplo de forma fácil podemos transformar el iterable map en una lista. Podemos simplificarlo con una **función lambda** para sustituir la llamada a una función definida por el usuario anterior:
+
+```py
+numeros_al_cuadrado = list(map(lambda x: x**2, numeros))
+print(numeros_al_cuadrado) # [4, 25, 100, 529, 400]
+```
+{: .nolineno }
+
