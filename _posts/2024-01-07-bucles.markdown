@@ -16,7 +16,11 @@ title: Programa lineal vs control de flujo
 flowchart TB
     subgraph lineal
     	direction TB
-    	a1([Inicio])-->a2
+    	inicio([Inicio])
+      -->a1[a1]
+      a1 --> a2[a2]
+      a2 --> a3[a3]
+      a3 --> fin([fin])
     end
     subgraph "con bucle"
     	direction TB
@@ -32,16 +36,37 @@ flowchart TB
 
 Una forma de iteración en Python es la sentencia `while` que permite repitir la ejecución de un bloque de código siempre y cuando la expresión condicional del bucle sea verdadera.
 
+{% tabs ej_while_python %}
+{% tab ej_while_python código %}
 ```py
-x = 5
-while x > 0:
-	x -= 1
-	print(x)
+i = 5
+while i > 0:
+  print(i)
+  i -= 1
 
 print("¡Booom!")
 ```
+{: .nolineno }
+{% endtab %}
+{% tab ej_while_python explicación %}
+Lo que ocurre a la hora de hacer funcionar este código es lo siguiente:
+
+- Antes de entrar en el **bucle** `while`, se inicializa la variable `i` en `0`.
+- Antes de realizar la primera **iteración** del bucle, **comprobamos la condición**.
+- Si la **condición es verdadera**, hacemos lo que está dentro del bucle.
+- Mostramos por pantalla el valor de `i` y luego
+**incrementamos el valor** actual de `i` en `1`.
+- Volvemos al **inicio del bucle** para hacer **una nueva iteración**. Comprobamos de nuevo la condición del bucle.
+- Cuando **la condición sea falsa**, salimos del bucle y continuamos el programa.
+{% endtab %}
+{% endtabs %}
+
+
+> La operación `x -= 1` es lo que suele llamar un decremento de una variable. Es equivalente a `x = x - 1` y por ende es muy común simplificarlo, aunque hace exactamente lo mismo.
+{: .prompt-info }
 
 ```
+5
 4
 3
 2
@@ -49,6 +74,8 @@ print("¡Booom!")
 ¡Booom!
 ```
 {: .nolineno .noheader }
+
+Un **bucle** `while` es muy simple, pero requiere que declaremos una variable previamente para evaluar y evitar que el programa se quede colgado en un **bucle infinito** por olvidarnos de este factor y además dentro debemos recordar **incrementar** o **decrementar** el valor de la variable.
 
 ---
 

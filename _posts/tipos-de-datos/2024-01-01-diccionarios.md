@@ -111,8 +111,8 @@ Paratamos del siguiente diccionario para ejemplificar las acciones:
 
 ```python
 user = {
-  "name": "marco",
-  "nickname": "enidev911"
+  "name": "Marco",
+  "nickname": "Enidev911"
 }
 ```
 {: .nolineno }
@@ -132,3 +132,66 @@ user['country'] = 'Chile'
 ```
 {: .nolineno }
 
+
+### Obtener todas las claves de un diccionario
+
+Mediante el método `keys()` de un diccionario podemos retornar un objeto de vista. La vista de objetos contiene las **clave** del diccionario en forma de **lista**:
+
+```python
+user.keys() # dict_keys(['name', 'nickname', 'country'])
+```
+{: .nolineno }
+
+### Obtener todas los valores de un diccionario
+
+De forma análoga con el método `values()` podemos retornar un objeto de vista. La vista de objetos contiene los **valores** del diccionario en forma de **lista**:
+
+```python
+user.keys() # dict_keys(['Marco', 'Enidev911', 'Chile'])
+```
+{: .nolineno }
+
+### Obtener todos los pares **clave-valor** de un diccionario
+
+Mediante el método `items()` de un diccionario podemos retornar un objeto de vista. La vista de objetos contiene tuplas como elementos conpuestas por pares **clave-valor** del diccionario en forma de vista:
+
+```python
+user.items() 
+"""
+dict_items([
+  ('name', 'Marco'),
+  ('nickname', 'Enidev911'),
+  ('country', 'Chile')
+  ])
+"""
+```
+{: .nolineno }
+
+### Borrar elementos
+
+Python nos proporciona, al menos, tres formas de borrar elementos en un diccionario:
+
+**Por su clave**
+: Mediante la sentencia `del`:
+
+```python
+del user['country']
+```
+{: .nolineno }
+
+**Por su clave (con extracción)**
+: Mediante el método `pop()` podemos extraer un elemento del diccionario por su clave esto retornará el valor de la clave extraida:
+
+```python
+user.pop('country') # Chile
+```
+{: .nolineno }
+
+**Borrado completo**
+: Mediante el método `clear()` podemos quitar todos los elementos de un diccionario:
+
+```python
+user.clear()
+user # {}
+```
+{: .nolineno }
