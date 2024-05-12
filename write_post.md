@@ -1,3 +1,15 @@
+
+### Mermaid
+
+Para habilitar los diagramas con mermaid debemos usar lo siguiente en el front-matter:
+
+```markdown
+---
+mermaid: true
+---
+```
+
+
 ### Description list
 
 ```markdown
