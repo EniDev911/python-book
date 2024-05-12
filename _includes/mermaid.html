@@ -57,8 +57,8 @@
     });
     // Hidden mermaid diagram
     const mermaids = document.querySelectorAll(".mermaid");
-    mermaids.forEach((mermaid) => {
-      mermaid.style.visibility = 'hidden';
+    mermaids.forEach((ele) => {
+      ele.style.visibility = 'hidden';
     })
     mermaid.initialize(mermaidConf);
     window.addEventListener('message', updateMermaid);
