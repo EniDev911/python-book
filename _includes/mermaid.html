@@ -55,13 +55,7 @@
       mermaid.appendChild(text);
       backup.after(mermaid);
     });
-    // Hidden mermaid diagram
-    // const mermaids = document.querySelectorAll(".mermaid");
-    // mermaids.forEach((ele) => {
-    //   ele.style.visibility = 'hidden';
-    // })
     mermaid.initialize(mermaidConf);
     window.addEventListener('message', updateMermaid);
-
   })();
 </script>
