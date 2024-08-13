@@ -2,20 +2,20 @@
 title: Usando entrada estándar
 author: enidev911
 date: 2024-01-02 20:55:00 +0800
-categories: [Python, Basico]
+categories: [Python, Básico]
 tags: [básico]
 pin: true
 img_path: 'python'
 image:
     path: "https://enidev911.github.io/fullstack-python/assets/img/python-input-card.png"
-    alt: ""
+    alt: "input python"
 ---
 
 ## Entrada de datos en Python - input
 
 Los desarrolladores a menudo tenemos la necesidad de interactuar con los usuarios, ya sea para obtener datos o para proporcionar algún tipo de resultado. La mayoría de los programas actuales utilizan un cuadro de diálogo como una forma de pedirle al usuario que proporcione algún tipo de entrada (*input*). Mientras que Python una función incorporada para leer la entrada estándar desde el teclado.
 
-### Sintaxis
+**Sintaxis**
 
 ```
 input(prompt) # Para Python en su versión 3.x
