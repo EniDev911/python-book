@@ -10,7 +10,7 @@ mermaid: true
 
 En el desarrollo de software, es fundamental que tu código pueda manejar situaciones inesperadas o errores de manera elegante y controlada. Python proporciona un mecanismo robusto para manejar errores y excepciones a través de las estructuras `try` y `except`. En este artículo, exploraremos en detalle cómo funcionan estas estructuras y cómo puedes usarlas para mejorar la robustez y la confiabilidad de tus programas.
 
-### ¿Qué Son las Excepciones?
+### ¿Qué son las Excepciones?
 
 Las excepciones en Python son eventos que ocurren durante la ejecución de un programa y que interrumpen el flujo normal de ejecución. Los errores pueden surgir por diversas razones, como:
 - Dividir por cero (`ZeroDivisionError`).
