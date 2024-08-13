@@ -19,7 +19,7 @@ Las excepciones en Python son eventos que ocurren durante la ejecución de un pr
 
 Cuando se produce una excepción, Python detiene la ejecución del código y busca un bloque `except` adecuado para manejar el error.
 
-### Estructura Básica de try y except
+### Estructura básica de try y except
 
 La estructura básica para manejar excepciones en Python es la siguiente:
 
