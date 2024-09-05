@@ -20,26 +20,27 @@ Cuando queremos abrir un archivo (digamos, en el disco duro), primero debemos **
 > Es importante dominar los conceptos de **ruta relativa** y **ruta absoluta** para trabajar con archivos.
 {: .prompt-warning }
 
-Para abrir un archivo Python nos brinda la función `open()` que recibe como argumento la **ruta del archivo** que queremos manejar como un `string` y como segundo argumento el **modo de apertura** también como un `string`.
+Para abrir un archivo, Python nos brinda la función `open()` que recibe como argumento la **ruta del archivo** que queremos manejar como un `string` y como segundo argumento el **modo de apertura** también como un `string`.
 
 {:class='fs-5'}
-Ver el ejemplo
+Ejemplo
 
-```py
-manejador = open('file.txt')
-print(manejador)
-print(type(manejador))
+```bash
+>>> manejador = open('file.txt')
+>>> manejador
+<_io.TextIOWrapper name='file.txt' mode='r' encoding='cp65001'>
+>>> type(manejador)
+<class '_io.TextIOWrapper'>
 ```
-{: .nolineno }
+{: .nolineno .noheader }
 
-Si el resultado de `open` es exitoso, el sistema operativo nos devuelve un **manejador de archivo**, que en este caso lo estamos asignando a una variable llamada `manejador`. El **manejador de archivo** no son los datos contenidos en el archivo, sino un manejador (*handler*) que podemos usar para leer los datos. Obtendrás un manejador de archivo si el archivo solicitado existe y si tienes los permisos apropiados para leerlo.
-
+Si el resultado de la función `open()` es exitoso, el sistema operativo nos devuelve una instancia de `TextIOWrapper` que es una clase en el módulo `io` de Python que se utiliza para manejar flujos de entrada/salida de texto, que en este caso lo estamos asignando a una variable llamada `manejador`. El **manejador de archivo** no son los datos contenidos en el archivo, sino un manejador (*handler*) que podemos usar para leer los datos.
 
 ---
 
 ## Leer un archivo
 
-Para leer un archivo sabemos que lo primero es abrir el respectivo archivo, si nos ponemos a pensar en una lista de amigos que tenemos en un archivo de texto llamado `amigos.txt` con el siguiente contenido:
+Para leer un archivo sabemos que lo primero es abrir el respectivo archivo usando la función `open()`, si nos ponemos a pensar en una lista de amigos que tenemos en un archivo de texto llamado `amigos.txt` con el siguiente contenido:
 
 ```
 Marco
@@ -49,15 +50,61 @@ Alejandro
 ```
 {: file='amigos.txt' }
 
+### read()
 
-Y luego tenemos que usar la función `open` para abrir el archivo en modo lectura (si no le pasamos un segundo argumento a la función `open` por defecto es modo lectura) y usar el método `read()` del manejador:
+Luego de usar la función `open`, abrimos el archivo en modo lectura (si no le pasamos un segundo argumento a la función `open()` por defecto es modo lectura) y usamos el método `read()` del manejador:
 
 ```py
-manejador = open('amigos.txt')
-print(manejador.read())
+>>> manejador = open('amigos.txt')
+>>> manejador.read()
+'Marco\nLuis\nGabriel\nAlejandro'
 ```
-{: .nolineno }
+{: .nolineno .noheader }
 
+Este método `read()` lee todo el contenido del archivo como una sola cadena de texto. Puede ser útil para archivos pequeños.
+
+> Una vez ejecutado el método `read()` del manejador si no se guarda el resultado en una variable, se debe volver a posicionar el puntero al inicio (usando el método `seek(0)` del maneajor).
+{: .prompt-warning }
+
+### read(size)
+
+El método `read()` si se le pasa el argumento `size` lee esa cantidad de bytes. Si se omite lee todo el el contenido restante del archivo.
+
+```py
+>>> manejador = open('amigos.txt')
+>>> manejador.read(10)
+'Marco\nLuis'
+>>> manejador.read()
+'\nGabriel\nAlejandro'
+```
+{: .nolineno .noheader }
+
+
+### readline()
+
+El método `readline()` lee una sola línea del archivo. Es útil para leer archivos línea por línea
+
+```py
+>>> manejador = "amigos.txt"
+>>> manejador.readline()
+'Marco\n'
+>>> manejador.readline()
+'Luis\n'
+>>> manejador.readline()
+'Gabriel\n'
+```
+{: .nolineno .noheader }
+
+### readlines()
+
+El método `readlines()` lee todas las líneas del archivo y las devuelve como una lista de cadenas, donde cada línea es un elemento de la lista.
+
+```py
+>>> manejador = "amigos.txt"
+>>> manejador.readlines()
+['Marco\n', 'Luis\n', 'Gabriel\n', 'Alejandro']
+```
+{: .nolineno .noheader }
 
 ---
 
@@ -130,7 +177,7 @@ encoding = manejador.encoding # cp1252
 manejador.close()
 manejador.closed # True
 ```
-{: .nolineno }
+{: .nolineno .noheader }
 
 
 ---
