@@ -140,7 +140,6 @@ Esto sucede porque el segundo argumento `'w'` se refiere al modo de **solo escri
 
 Tenemos entonces ahora el modo de **solo agregar** (*append*) `'a'` que nos permite abrir el archivo para escritura y de la misma forma que `'w'` si el archivo aún no existe, se crea uno nuevo. La diferencia es que en este modo el cursor del manejador se establece al final del archivo y así los datos recíen escritos se agregarán al final, manteniendo los datos escritos anteriormente:
 
-
 ```python
 manejador = open('amigos.txt', 'a')
 
@@ -149,6 +148,18 @@ manejador.write("\nJuan") # '\n' es para generar un salto de línea
 {: .nolineno }
 
 Al igual que en el caso anterior, si queremos además leer el archivo debemos cambiar al modificador `'a+'`.
+
+### writelines()
+
+El método `writelines()` nos permite escribir múltiples líneas a la vez. Ejemplo:
+
+
+```py
+>>> lineas = ['Primera línea\n', 'Segunda línea\n', 'Tercera línea\n']
+>>> with open('archivo.txt', 'w') as archivo:
+...     archivo.writelines(lineas)
+```
+{: .nolineno .noheader }
 
 ---
 
@@ -222,3 +233,10 @@ except:
 	# Se entra aquí si no pudo ser abierto
 	print('No se pudo abrir')
 ```
+
+---
+
+## Consideraciones adicionales
+
+**Manejo de excepciones**
+: Siempre es buena práctica manejar posibles excepciones cuando se trabaja con archivos. Puedes usar `try` y `except` para capturar errores como `FileNotFoundError` o `IOError`.
