@@ -117,15 +117,15 @@ manejador = open('amigos.txt', 'w')
 ```
 {: .nolineno }
 
-Luego usaremos el método `write` del manejador para escribir en el archivo anterior:
+### write()
+
+Luego usaremos el método `write()` del manejador para escribir en el archivo anterior:
 
 ```python
-
 manejador = open('amigos.txt', 'w')
-
 manejador.write("Juan")
 ```
-{: .nolineno }
+{: .nolineno .noheader }
 
 Si revisamos el archivo `amigos.txt` nos encontraremos con la sorpresa de que se sobreescribio el contenido:
 
