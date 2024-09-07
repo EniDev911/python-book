@@ -1,8 +1,7 @@
 ---
-title: Trabajar con archivos
+title: Leer y escribir archivos de texto
 author: enidev911
-date: 2024-01-02 20:55:00 +0800
-categories: [Python, Archivos]
+categories: [Python, Manejo de Archivos en Python]
 tags: [trabajar con archivos]
 pin: true
 img_path: '/posts/20180809'
@@ -202,7 +201,7 @@ Un ejemplo sería:
 
 ```py
 with open("ejemplo.txt", "r") as archivo:
-	content = archivo.read()
+  content = archivo.read()
 ```
 {:file='demos/uso_with.py'}
 
@@ -226,12 +225,12 @@ Veamos el ejemplo
 ```py
 # Se intenta abrir un archivo y se captura una posible excepción
 try:
-	with open('archivo.txt') as file:
-		read_data = file.read()
-		print(read_data)
+  with open('archivo.txt') as file:
+    read_data = file.read()
+    print(read_data)
 except:
-	# Se entra aquí si no pudo ser abierto
-	print('No se pudo abrir')
+  # Se entra aquí si no pudo ser abierto
+  print('No se pudo abrir')
 ```
 
 ---
